@@ -1251,23 +1251,7 @@ class GradeBook extends UIRenderPieces(I18NMixin(SimpleColors)) {
     }
   }
   studentreportClick(e) {
-    ESGlobalBridgeStore.import(
-      "jspdf",
-      new URL(`./lib/`, import.meta.url).href + "jspdf.min.js"
-    ).then(() => {
-      var pdf = new jsPDF();
-      pdf.fromHTML(
-        this.shadowRoot.querySelector("#studentreport").outerHTML,
-        15,
-        15
-      );
-      const cd = new Date();
-      const dateTime = `${cd.getFullYear()}-${cd.getMonth()}-${cd.getDate()}__${cd.getHours()}-${cd.getMinutes()}-${cd.getSeconds()}`;
-      const fname = `${this.database.roster[this.activeStudent].student}--${
-        this.database.assignments[this.activeAssignment].shortName
-      }--${dateTime}.pdf`;
-      pdf.save(fname);
-    });
+    console.log('need to port to vercel');
   }
   // open extra window and then render content
   openWindow(e) {
